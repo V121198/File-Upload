@@ -1,0 +1,19 @@
+{
+  "name": "file-upload",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V121198/File-Upload.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V121198/File-Upload/issues"
+  },
+  "homepage": "https://github.com/V121198/File-Upload#readme",
+  "description": ""
+}
