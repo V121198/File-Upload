@@ -15,6 +15,17 @@ app.use(express.json())
 // const file= upload.single("profileImage")
 
 
+const storage= multer.diskStorage(
+    {
+        destination:"../File Upload/Uploads",
+        filename:(req, file, cb)=>{
+            cb(null, file.fieldname+ "-"+Date.now()+path.extname(file.originalname))
+        }
+    }
+)
+
+const upload= multer({storage: storage})
+
 app.set("view engine","ejs")
 app.set("views",path.resolve("../File Upload/View"))
 
@@ -22,8 +33,8 @@ app.get("/", (req, res)=>{
 res.render("view")
 })
 
-app.post("/", (req, res)=>{
-    const data= req.file;
+app.post("/",upload.fields([{name:"profileImage", maxcount:1},{name: "images", maxcount:3}]), (req, res)=>{
+    const data= req.files;
     console.log(data)
     res.json(data)
 })
